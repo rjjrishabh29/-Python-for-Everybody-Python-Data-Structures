@@ -1,0 +1,9 @@
+romeo=open(input())
+words=[]
+for i in romeo:
+    words_in_line=i.split()
+    for j in words_in_line:
+        if not j in words:
+            words.append(j)
+   
+print(words.sorted())
