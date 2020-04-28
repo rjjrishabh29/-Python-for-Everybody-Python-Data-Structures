@@ -1,0 +1,11 @@
+name=open(input())
+average=0
+count=0
+add=0
+for i in name:
+    if i.startswith("X-DSPAM-Confidence"):
+        position=i.find('0')
+        add=add+float(i[position:])
+        count=count+1
+average=add/count
+print("Average spam confidence:",average)
