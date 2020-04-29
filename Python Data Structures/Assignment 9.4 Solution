@@ -1,0 +1,14 @@
+mail={}
+key=None
+value=None
+file=open('mbox-short.txt')
+for i in file:
+    if(len(i)>1):
+        i=i.split()
+        if i[0] == "From":
+            mail[i[1]]=mail.get(i[1],0)+1
+for keyy,val in mail.items():
+    if val=="None" or val>value:
+        key=keyy
+        value=val
+print(key,value)        
