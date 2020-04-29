@@ -1,0 +1,14 @@
+count={}
+l=[]
+file=open("mbox-short.txt")
+for i in file:
+    if i.startswith("From"):
+        i=i.split()
+        if (len(i)>2):  
+            i=i[5]
+            i=i.split(":") 
+            count[i[0]]=count.get(i[0],0)+1
+l=(sorted([(k,v) for k,v in count.items()]))
+for i in range(len(l)):
+    print(l[i][0],l[i][1])
+
