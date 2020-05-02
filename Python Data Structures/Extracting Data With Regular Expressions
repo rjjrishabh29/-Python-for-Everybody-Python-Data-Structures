@@ -1,0 +1,14 @@
+  
+a=open("actual.txt",'r')
+l=[]
+m=[]
+for i in a :
+  if(len(i)>1):
+    l=(re.findall("[0-9]+",i))
+    if len(l)>=1:
+      m.append(l)
+summ=0
+for i in m:
+  for j in i:
+    summ=summ+int(j)
+print(summ)
