@@ -1,0 +1,11 @@
+import xml.etree.ElementTree as Et
+import urllib.request,urllib.parse, urllib.error
+
+data=urllib.request.urlopen('http://py4e-data.dr-chuck.net/comments_488076.xml').read()
+tree=Et.fromstring(data)
+sum=0
+lst=tree.findall('comments/comment')
+for i in lst:
+    value=(i.find('count').text)
+    sum+=int(value)
+print(sum)
