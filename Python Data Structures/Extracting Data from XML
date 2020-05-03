@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as Et
-import urllib.request,urllib.parse, urllib.error
+import urllib.request,urllib.parse, urllib.error 
 
 data=urllib.request.urlopen('http://py4e-data.dr-chuck.net/comments_488076.xml').read()
 tree=Et.fromstring(data)
