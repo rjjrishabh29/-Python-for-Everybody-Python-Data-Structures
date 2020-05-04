@@ -1,0 +1,35 @@
+import sqlite3
+import re
+
+conn=sqlite3.connect('emaildb.sqlite')
+cur=conn.cursor()
+
+cur.execute('Drop table if exists Counts')
+
+cur.execute('''CREATE TABLE Counts (org TEXT, count INTEGER)''')
+
+fl=open('mbox.txt')
+
+for line in fl:
+    if not line.startswith('From: '):
+        continue
+    email=line.split()
+    email=email[1]
+    org=re.findall('@.[a-z].+',email)
+    org=org[0]
+    org.split()
+    org=org.split()
+    org=org[0]
+    cur.execute('Select count from counts where org= ? ',(org,))
+    res=cur.fetchone()
+    if res is None:
+        cur.execute('''Insert into counts values (?,1)''',(org,))
+    else:
+        cur.execute('update counts set count =count+1 where org = ?',(org,))
+conn.commit() 
+result='Select org, count from counts order by count desc  limit 10'
+
+for row in cur.execute(result):
+    print(str(row[0]), row[1])
+
+cur.close()
