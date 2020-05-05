@@ -5,7 +5,6 @@ conn=sqlite3.connect('emaildb.sqlite')
 cur=conn.cursor()
 
 cur.execute('Drop table if exists Counts')
-
 cur.execute('''CREATE TABLE Counts (org TEXT, count INTEGER)''')
 
 fl=open('mbox.txt')
