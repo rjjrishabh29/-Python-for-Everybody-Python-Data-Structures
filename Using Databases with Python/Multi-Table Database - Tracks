@@ -53,7 +53,7 @@ def lookup(d, key):
 
 #create element tress and find branch
 stuff = ET.parse(fname)
-all = stuff.findall('dict/dict/dict')#add one dict/
+all = stuff.findall('dict/dict/dict')
 for entry in all:
     if ( lookup(entry, 'Track ID') is None ) : continue
 
