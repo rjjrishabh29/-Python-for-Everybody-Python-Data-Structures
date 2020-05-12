@@ -1,4 +1,3 @@
-  
 a=open("actual.txt",'r')
 l=[]
 m=[]
